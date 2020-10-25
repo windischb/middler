@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Reflectensions.Json" Version="4.5.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\middler.Action.Scripting.Environment\middler.Action.Scripting.Environment.csproj" />
+    <ProjectReference Include="..\middler.Action.Scripting.Javascript\middler.Action.Scripting.Javascript.csproj" />
+    <ProjectReference Include="..\middler.Action.Scripting.Powershell\middler.Action.Scripting.Powershell.csproj" />
+    <ProjectReference Include="..\middler.Action.Scripting.Typescript\middler.Action.Scripting.Typescript.csproj" />
+    <ProjectReference Include="..\..\middler.Common\middler.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TypeDefinitions\Context.d.ts">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+    <None Update="TypeDefinitions\lib.es2015.core.d.ts">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+    <None Update="TypeDefinitions\lib.es5.d.ts">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+    <None Update="TypeDefinitions\system.ts">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+  </ItemGroup>
+
+</Project>
