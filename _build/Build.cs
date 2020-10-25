@@ -55,7 +55,7 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() => {
 
-            var libraries = Solution.AllProjects.Where(p => !p.Name.Contains("Test", StringComparison.OrdinalIgnoreCase));
+            var libraries = Solution.AllProjects.Where(p => p.Name.StartsWith("middler.") && !p.Name.Contains("Test", StringComparison.OrdinalIgnoreCase));
 
             foreach (var library in libraries)
             {
@@ -97,7 +97,7 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() => {
 
-            var libraries = Solution.AllProjects.Where(p => !p.Name.Contains("Test", StringComparison.OrdinalIgnoreCase));
+            var libraries = Solution.AllProjects.Where(p => p.Name.StartsWith("middler.") && !p.Name.Contains("Test", StringComparison.OrdinalIgnoreCase));
 
             DotNetPack(s => s
                 .SetVersion(GitVersion.NuGetVersionV2)
