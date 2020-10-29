@@ -51,7 +51,7 @@ namespace middler.Action.Scripting.Powershell
                     
                     _pipeline = Runspace.CreatePipeline();
                     _pipeline.Commands.AddScript(command);
-                
+
                     var ret = _pipeline.Invoke();
                     var errorList = new List<string>();
                     if (_pipeline.Error.Count > 0)
@@ -62,7 +62,8 @@ namespace middler.Action.Scripting.Powershell
                             {
                                 if (value.BaseObject is ErrorRecord r)
                                 {
-                                    errorList.Add(r.Exception.Message);
+                                    errorList.Add(
+                                        $"{r.Exception.Message}{Environment.NewLine}{r.InvocationInfo.PositionMessage}");
                                 }
                             }
                         }
@@ -76,7 +77,11 @@ namespace middler.Action.Scripting.Powershell
 
                     return ret;
                 }
-                catch (Exception)
+                catch (RuntimeException rex)
+                {
+                    throw new Exception($"{rex.ErrorRecord.Exception.Message}{Environment.NewLine}{rex.ErrorRecord.InvocationInfo.PositionMessage}");
+                }
+                catch (Exception ex)
                 {
                    
                     throw;

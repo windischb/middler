@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\middler.Common\middler.Common.csproj" />
     <ProjectReference Include="..\middler.Action.Scripting.Shared\middler.Action.Scripting.Shared.csproj" />
   </ItemGroup>
 

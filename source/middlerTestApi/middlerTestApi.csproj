@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<ServerGarbageCollection>false</ServerGarbageCollection>
+		<ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+		<IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+		<!--<DebugSymbols>false</DebugSymbols>-->
+		<!--<DebugType>None</DebugType>-->
+		<LangVersion>8.0</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Actions\middler.Action.Scripting.Powershell\middler.Action.Scripting.Powershell.csproj" />
+	  <ProjectReference Include="..\Actions\middler.Action.Scripting\middler.Action.Scripting.csproj" />
+	  <ProjectReference Include="..\Actions\middler.Action.UrlRedirect\middler.Action.UrlRedirect.csproj" />
+	  <ProjectReference Include="..\Actions\middler.Action.UrlRewrite\middler.Action.UrlRewrite.csproj" />
+	  <ProjectReference Include="..\middler.Core\middler.Core.csproj" />
+	</ItemGroup>
+
+</Project>

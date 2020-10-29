@@ -31,14 +31,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "middler.Action.UrlRedirect"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "_build\_build.csproj", "{280ED685-144B-41CE-AFE3-B1F96382A550}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "middlerTestApi", "source\middlerTestApi\middlerTestApi.csproj", "{BECAA75E-B61A-45D8-93E4-9A0A15CB329B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{280ED685-144B-41CE-AFE3-B1F96382A550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{280ED685-144B-41CE-AFE3-B1F96382A550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{384D5000-5C0A-48C9-81BF-DBED0E06A2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{384D5000-5C0A-48C9-81BF-DBED0E06A2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{384D5000-5C0A-48C9-81BF-DBED0E06A2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +87,12 @@ Global
 		{07D53B50-A07F-4605-B8A5-CEE0E44DD59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D53B50-A07F-4605-B8A5-CEE0E44DD59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D53B50-A07F-4605-B8A5-CEE0E44DD59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280ED685-144B-41CE-AFE3-B1F96382A550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280ED685-144B-41CE-AFE3-B1F96382A550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECAA75E-B61A-45D8-93E4-9A0A15CB329B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECAA75E-B61A-45D8-93E4-9A0A15CB329B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECAA75E-B61A-45D8-93E4-9A0A15CB329B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECAA75E-B61A-45D8-93E4-9A0A15CB329B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
