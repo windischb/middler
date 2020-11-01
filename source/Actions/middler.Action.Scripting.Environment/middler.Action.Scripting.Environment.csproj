@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\middler.Common.SharedModels\middler.Common.SharedModels.csproj" />
+    <ProjectReference Include="..\middler.Action.Scripting.Shared\middler.Action.Scripting.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,5 +53,15 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </None>
   </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="TypeDefinitions/**/*.*" copyToOutput="true">
+			<IncludeInPackage>true</IncludeInPackage>
+			<CopyToOutput>true</CopyToOutput>
+			<BuildAction>Content</BuildAction>
+			<copyToOutput>true</copyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
 </Project>

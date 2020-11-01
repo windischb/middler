@@ -62,13 +62,6 @@ namespace middler.Action.Scripting
         }
 
 
-        //private void SendResponse(IMiddlerResponseContext httpContext, ScriptContext scriptContext)
-        //{
-        //    httpContext.StatusCode = scriptContext.Response.StatusCode ?? 200;
-        //    httpContext.SetBody(scriptContext.Response.Body.ToString());
-        //}
-
-
         private IScriptEngine GetScriptEngine()
         {
             switch (Parameters.Language)
@@ -103,6 +96,11 @@ namespace middler.Action.Scripting
 
             return Parameters.CompiledCode;
         }
+
+        //public string GetTypeScriptDefinitions()
+        //{
+
+        //}
 
     }
 }
