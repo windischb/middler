@@ -48,6 +48,10 @@ namespace middler.Action.Scripting.Models
                         var json = Json.Converter.ToJToken(o);
                         list.Add(Json.Converter.ToBasicDotNetObject(json));
                     }
+                    else
+                    {
+                        list.Add(o);
+                    }
                 }
                 _middlerResponseContext.SetBody(list);
                 return;
