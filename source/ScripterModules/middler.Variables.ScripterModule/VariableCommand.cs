@@ -2,14 +2,16 @@
 using System.Linq;
 using middler.Common.SharedModels.Interfaces;
 using middler.Common.SharedModels.Models;
+using Reflectensions;
+using Scripter.Shared;
 
-namespace middler.Scripting.Variables
+namespace middler.Variables.ScripterModule
 {
-    public class VariableCommand
+    public class VariablesModule: IScripterModule
     {
         private readonly IVariablesRepository _variablesStore;
 
-        public VariableCommand(IVariablesRepository variablesStore)
+        public VariablesModule(IVariablesRepository variablesStore)
         {
             _variablesStore = variablesStore;
         }
@@ -23,7 +25,7 @@ namespace middler.Scripting.Variables
             if (path.Contains("/"))
             {
                 var parts = path.Split('/');
-                parent = String.Join('/', parts.Take(parts.Length - 1));
+                parent = String.Join("/", parts.Take(parts.Length - 1));
                 name = parts.Last();
             }
 
@@ -33,7 +35,7 @@ namespace middler.Scripting.Variables
         public T GetVariableContent<T>(string path)
         {
             var variable = this.GetVariable(path);
-            return Converter.Json.ToObject<T>(variable.Content);
+            return Json.Converter.ToObject<T>(variable.Content);
         }
 
         public object GetAny(string path)

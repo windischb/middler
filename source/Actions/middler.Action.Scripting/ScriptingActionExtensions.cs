@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
-using middler.Action.Scripting.Powershell;
+
 using middler.Common.Interfaces;
 using Reflectensions;
 
@@ -15,7 +15,7 @@ namespace middler.Action.Scripting
             optionsBuilder.ServiceCollection.AddTransient<ScriptingAction>();
             optionsBuilder.RegisterAction<ScriptingAction>(alias);
 
-            Json.Converter.RegisterJsonConverter<PSObjectJsonConverter>();
+            //Json.Converter.RegisterJsonConverter<PSObjectJsonConverter>();
             return optionsBuilder;
         }
     }

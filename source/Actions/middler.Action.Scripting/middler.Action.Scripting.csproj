@@ -8,14 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Reflectensions.Json" Version="4.5.7" />
+    <PackageReference Include="Reflectensions.Json" Version="4.7.0" />
+    <PackageReference Include="Scripter" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\middler.Action.Scripting.Environment\middler.Action.Scripting.Environment.csproj" />
-    <ProjectReference Include="..\middler.Action.Scripting.Javascript\middler.Action.Scripting.Javascript.csproj" />
-    <ProjectReference Include="..\middler.Action.Scripting.Powershell\middler.Action.Scripting.Powershell.csproj" />
-    <ProjectReference Include="..\middler.Action.Scripting.Typescript\middler.Action.Scripting.Typescript.csproj" />
     <ProjectReference Include="..\..\middler.Common\middler.Common.csproj" />
   </ItemGroup>
 

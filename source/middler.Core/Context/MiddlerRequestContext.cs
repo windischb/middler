@@ -18,7 +18,7 @@ using middler.Core.ExtensionMethods;
 using Newtonsoft.Json;
 using Reflectensions.ExtensionMethods;
 
-namespace middler.Core
+namespace middler.Core.Context
 {
     public class MiddlerRequestContext:  IMiddlerRequestContext
     {

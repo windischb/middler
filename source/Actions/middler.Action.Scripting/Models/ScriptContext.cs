@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using middler.Action.Scripting.Shared;
+﻿
 using middler.Common;
 using middler.Common.SharedModels.Models;
 
@@ -9,8 +8,8 @@ namespace middler.Action.Scripting.Models
     {
         private readonly ScriptContextMethods _scriptContextMethods;
 
-        public IScriptContextResponse Response { get; }
-        public IScriptContextRequest Request { get; }
+        public ScriptContextResponse Response { get; }
+        public ScriptContextRequest Request { get; }
         public SimpleDictionary<object> PropertyBag => _middlerContext.PropertyBag;
 
         public bool Terminating { get; set; }

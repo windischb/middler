@@ -1,6 +1,6 @@
 ﻿using middler.Common.Interfaces;
 
-namespace middler.Common.Actions.UrlRedirect
+namespace middler.Action.UrlRedirect
 {
     public static class UrlRedirectionExtensions
     {

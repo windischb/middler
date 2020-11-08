@@ -2,7 +2,9 @@
 using System.Text;
 using middler.Common;
 using middler.Common.SharedModels.Models;
+using middler.Common.StreamHelper;
 using Newtonsoft.Json;
+using Reflectensions;
 
 namespace middler.Core.Context
 {
@@ -62,9 +64,7 @@ namespace middler.Core.Context
         private void SetObjectBody(object @object)
         {
             using var sw = new StreamWriter(Body, new UTF8Encoding(false), 8192, true);
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Serialize(sw, @object);
-
+            Json.Converter.JsonSerializer.Serialize(sw, @object);
         }
 
         private void SetStringBody(string content)

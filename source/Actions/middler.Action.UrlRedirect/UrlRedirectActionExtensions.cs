@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using middler.Common.Interfaces;
 
-namespace middler.Common.Actions.UrlRedirect
+namespace middler.Action.UrlRedirect
 {
     public static class UrlRedirectActionExtensions
     {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
@@ -11,11 +11,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Actions\middler.Action.Scripting.Powershell\middler.Action.Scripting.Powershell.csproj" />
+	  <PackageReference Include="Scripter.ConsoleWriter" Version="1.1.0" />
+	  <PackageReference Include="Scripter.HttpModule" Version="1.1.0" />
+	  <PackageReference Include="Scripter.JavaScript" Version="1.1.0" />
+	  <PackageReference Include="Scripter.PowershellCore" Version="1.1.0" />
+	  <PackageReference Include="Scripter.TypeScript" Version="1.1.0" />
+	  <PackageReference Include="Scripter.SmtpModule" Version="1.1.0" />
+	  <PackageReference Include="Scripter.TemplateModule" Version="1.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\Actions\middler.Action.Scripting\middler.Action.Scripting.csproj" />
 	  <ProjectReference Include="..\Actions\middler.Action.UrlRedirect\middler.Action.UrlRedirect.csproj" />
 	  <ProjectReference Include="..\Actions\middler.Action.UrlRewrite\middler.Action.UrlRewrite.csproj" />
 	  <ProjectReference Include="..\middler.Core\middler.Core.csproj" />
+	  <ProjectReference Include="..\ScripterModules\middler.TaskHelper.ScripterModule\middler.TaskHelper.ScripterModule.csproj" />
+	  <ProjectReference Include="..\ScripterModules\middler.Variables.ScripterModule\middler.Variables.ScripterModule.csproj" />
 	</ItemGroup>
 
 </Project>

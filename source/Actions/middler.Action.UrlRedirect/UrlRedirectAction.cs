@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using middler.Common;
 using middler.Common.Interfaces;
 using middler.Common.SharedModels.Models;
 
-namespace middler.Common.Actions.UrlRedirect
+namespace middler.Action.UrlRedirect
 {
     public class UrlRedirectAction: MiddlerAction<UrlRedirectOptions>
     {

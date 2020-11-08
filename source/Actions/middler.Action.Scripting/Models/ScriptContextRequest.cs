@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
-using middler.Action.Scripting.ExtensionMethods;
-using middler.Action.Scripting.Shared;
 using middler.Common;
 using middler.Common.SharedModels.Models;
 
 namespace middler.Action.Scripting.Models
 {
-    public class ScriptContextRequest : IScriptContextRequest
+    public class ScriptContextRequest
     {
         public string HttpMethod => _middlerRequestContext.HttpMethod;
         public Uri Uri => _middlerRequestContext.Uri;

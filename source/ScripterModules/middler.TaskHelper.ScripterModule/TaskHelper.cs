@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using Nito.AsyncEx.Synchronous;
 using Reflectensions.ExtensionMethods;
-using Reflectensions.Helper;
+using Scripter.Shared;
 
-namespace middler.Scripting
+namespace middler.TaskHelper.ScripterModule
 {
-    public class TaskHelper
+    public class TaskHelperModule: IScripterModule
     {
        
         public object Await(Task task)

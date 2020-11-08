@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Management.Automation;
-using middler.Action.Scripting.Shared;
+
 using middler.Common;
 using middler.Common.SharedModels.Models;
 using Reflectensions;
@@ -9,7 +8,7 @@ using Reflectensions.ExtensionMethods;
 
 namespace middler.Action.Scripting.Models
 {
-    public class ScriptContextResponse: IScriptContextResponse
+    public class ScriptContextResponse
     {
         public int StatusCode
         {
@@ -43,27 +42,27 @@ namespace middler.Action.Scripting.Models
                 var arr = body as IEnumerable;
                 foreach (var o in arr)
                 {
-                    if (o is PSObject pso)
-                    {
-                        var json = Json.Converter.ToJToken(o);
-                        list.Add(Json.Converter.ToBasicDotNetObject(json));
-                    }
-                    else
-                    {
+                    //if (o is PSObject pso)
+                    //{
+                    //    var json = Json.Converter.ToJToken(o);
+                    //    list.Add(Json.Converter.ToBasicDotNetObject(json));
+                    //}
+                    //else
+                    //{
                         list.Add(o);
-                    }
+                    //}
                 }
                 _middlerResponseContext.SetBody(list);
                 return;
             }
 
-            if (body is PSObject _pso)
-            {
-                var json = Json.Converter.ToJToken(_pso);
-                var obj = Json.Converter.ToBasicDotNetObject(json);
-                _middlerResponseContext.SetBody(obj);
-                return;
-            }
+            //if (body is PSObject _pso)
+            //{
+            //    var json = Json.Converter.ToJToken(_pso);
+            //    var obj = Json.Converter.ToBasicDotNetObject(json);
+            //    _middlerResponseContext.SetBody(obj);
+            //    return;
+            //}
 
             _middlerResponseContext.SetBody(body);
         }

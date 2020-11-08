@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Routing.Constraints;
 using middler.Common;
 using middler.Common.Interfaces;
 using middler.Common.SharedModels.Models;
 using middler.Common.StreamHelper;
-using middler.Core.Context;
-using middler.Core.Models;
 
-namespace middler.Core
+namespace middler.Core.Context
 {
     public class MiddlerContext: IMiddlerContext
     {

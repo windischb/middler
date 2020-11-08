@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using middler.Action.Scripting.Shared;
-using middler.Common.SharedModels.Attributes;
-using Newtonsoft.Json;
+﻿using middler.Common.SharedModels.Attributes;
 
 namespace middler.Action.Scripting
 {
-    public class ScriptingOptions : IScriptingOptions
+    public class ScriptingOptions 
     {
-        public ScriptLanguage Language { get; set; }
+        public string Language { get; set; }
 
         public string SourceCode { get; set; }
 
