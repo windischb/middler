@@ -18,10 +18,14 @@ namespace middler.Action.Scripting
 
         private IServiceProvider _serviceProvider;
 
+        public ScriptingAction(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         public async Task ExecuteRequestAsync(IMiddlerContext middlerContext)
         {
-            _serviceProvider = middlerContext.RequestServices;
-
+           
             IScriptEngine scriptEngine = _serviceProvider.GetRequiredNamedService<IScriptEngine>(Parameters.Language);
 
             var compile = scriptEngine.NeedsCompiledScript && (!string.IsNullOrEmpty(Parameters.SourceCode) &&
