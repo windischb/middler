@@ -21,7 +21,8 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     GitHubActionsImage.UbuntuLatest,
     AutoGenerate = true,
     OnPushBranches = new[] { "develop" },
-    InvokedTargets = new[] { nameof(Compile) }
+    InvokedTargets = new[] { nameof(Push) },
+    ImportSecrets = new [] { "GITHUB_TOKEN" }
 )]
 class Build : NukeBuild
 {
@@ -39,6 +40,9 @@ class Build : NukeBuild
     [Solution] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
     [GitVersion] readonly GitVersion GitVersion;
+
+    [Parameter("ApiKey", Name = "GITHUB_TOKEN")]
+    readonly string GITHUB_TOKEN;
 
     AbsolutePath SourceDirectory => RootDirectory / "source";
     AbsolutePath TestsDirectory => RootDirectory / "tests";
@@ -118,5 +122,16 @@ class Build : NukeBuild
             );
         });
 
+    Target Push => _ => _
+        .DependsOn(Pack)
+        .Executes(() =>
+        {
 
+            DotNetNuGetPush(o => o
+                .SetSource("https://nuget.pkg.github.com/windischb/index.json")
+                .SetApiKey(GITHUB_TOKEN)
+                .SetTargetPath(OutputDirectory / "*.nupkg")
+            );
+           
+        });
 }
