@@ -30,7 +30,8 @@ namespace middler.Core.ExtensionMethods
                             .Select(c => c.Value)
                             .ToList();
 
-            var hasUser = !String.IsNullOrWhiteSpace(middlerRequestContext.Principal.Identity.Name);
+            //var hasUser = !String.IsNullOrWhiteSpace(middlerRequestContext.Principal.Identity.Name);
+            var isAuthenticated = middlerRequestContext.Principal.Identity.IsAuthenticated;
 
             foreach (var permissionRule in permissionRules) {
                 var inRange = SourceIpAddressIsInRange(middlerRequestContext.SourceIPAddress, permissionRule.SourceAddress);
@@ -46,7 +47,7 @@ namespace middler.Core.ExtensionMethods
                         break;
                     }
                     case PrincipalType.Authenticated: {
-                        if (inRange && isClient && hasUser) {
+                        if (isAuthenticated && inRange && isClient) {
                             return permissionRule.AccessMode;
                         }
 
@@ -54,14 +55,14 @@ namespace middler.Core.ExtensionMethods
                     }
                     case PrincipalType.User: {
 
-                        if (inRange && isClient && Wildcard.Match(middlerRequestContext.Principal.Identity.Name, permissionRule.PrincipalName.ToNull() ?? "")) {
+                        if (isAuthenticated && inRange && isClient && Wildcard.Match(middlerRequestContext.Principal.Identity.Name, permissionRule.PrincipalName.ToNull() ?? "")) {
                             return permissionRule.AccessMode;
                         }
 
                         break;
                     }
                     case PrincipalType.Role: {
-                        if (isClient && inRange) {
+                        if (isAuthenticated && isClient && inRange) {
                             foreach (var role in roles) {
                                 if (Wildcard.Match(role, permissionRule.PrincipalName.ToNull() ?? "")) {
                                     return permissionRule.AccessMode;
@@ -123,11 +124,8 @@ namespace middler.Core.ExtensionMethods
             if (String.IsNullOrWhiteSpace(currentClient))
                 return false;
 
-            var clients = Regex.Split(clientRange, @"[,|;]").Select(c => c.Trim());
+            var clients = Regex.Split(clientRange, @"[,|;]").Select(c => c?.Trim().ToNull()).Where(c => c != null);
             foreach (var client in clients) {
-
-                if (String.IsNullOrWhiteSpace(client))
-                    return true;
 
                 if (Wildcard.Match(currentClient, client, true))
                     return true;
