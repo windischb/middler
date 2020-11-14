@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Run './build.cmd Compile'
-        run: ./build.cmd Compile
+      - name: Run './build.cmd Push'
+        run: ./build.cmd Push
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
