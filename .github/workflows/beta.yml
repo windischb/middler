@@ -27,5 +27,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Run './build.cmd Compile'
-        run: ./build.cmd Compile
+      - name: Run './build.sh Compile'
+        run: ./build.sh Compile
