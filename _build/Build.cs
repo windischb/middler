@@ -18,7 +18,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
 [GitHubActions("beta",
-    GitHubActionsImage.MacOsLatest,
+    GitHubActionsImage.UbuntuLatest,
     AutoGenerate = true,
     OnPushBranches = new[] { "develop" },
     InvokedTargets = new[] { nameof(Compile) }
