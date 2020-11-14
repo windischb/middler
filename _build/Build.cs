@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Nuke.Common;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
@@ -16,6 +17,12 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
+[GitHubActions("beta",
+    GitHubActionsImage.MacOsLatest,
+    AutoGenerate = true,
+    OnPushBranches = new[] { "develop" },
+    InvokedTargets = new[] { nameof(Compile) }
+    )]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -92,7 +99,7 @@ class Build : NukeBuild
             }
 
         });
-
+    
     Target Pack => _ => _
         .DependsOn(Restore)
         .Executes(() => {
