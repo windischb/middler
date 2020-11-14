@@ -9,8 +9,4 @@
 		<PackageReference Include="Reflectensions.Json" Version="4.7.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\middler.Common.SharedModels\middler.Common.SharedModels.csproj" />
-	</ItemGroup>
 </Project>
