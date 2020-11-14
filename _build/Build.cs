@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
@@ -126,11 +127,21 @@ class Build : NukeBuild
         .DependsOn(Pack)
         .Executes(() =>
         {
+            var files = Directory.GetFiles(OutputDirectory, "*.nupkg");
+
+
+            Console.WriteLine(GITHUB_TOKEN.Reverse());
+            foreach (var file in files)
+            {
+                Console.WriteLine(file);
+            }
+
 
             DotNetNuGetPush(o => o
                 .SetSource("https://nuget.pkg.github.com/windischb/index.json")
                 .SetApiKey(GITHUB_TOKEN)
-                .SetTargetPath(OutputDirectory / "*.nupkg")
+                .CombineWith(files, (settings, s) => settings.SetTargetPath(s))
+                
             );
            
         });
