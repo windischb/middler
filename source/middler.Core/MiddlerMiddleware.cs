@@ -126,14 +126,22 @@ namespace middler.Core
                 } while (!terminating);
 
 
-                while (executedActions.TryPop(out var executedAction))
+                if (executedActions.Any())
                 {
-                    await ExecuteResponseAction(executedAction, middlerContext);
+                    while (executedActions.TryPop(out var executedAction))
+                    {
+                        await ExecuteResponseAction(executedAction, middlerContext);
+                    }
+
+                    //httpContext.Response.Body = middlerContext.MiddlerResponseContext.Body;
+
+                    await WriteToAspNetCoreResponseBodyAsync(httpContext, middlerContext).ConfigureAwait(false);
                 }
-
-                //httpContext.Response.Body = middlerContext.MiddlerResponseContext.Body;
-
-                await WriteToAspNetCoreResponseBodyAsync(httpContext, middlerContext).ConfigureAwait(false);
+                else
+                {
+                    await _next(httpContext);
+                }
+                
 
 
             }
