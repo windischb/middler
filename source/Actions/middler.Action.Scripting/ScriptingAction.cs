@@ -38,11 +38,11 @@ namespace middler.Action.Scripting
             }
 
             var scriptContextMethods = new ScriptContextMethods();
-            scriptContextMethods.SendResponse = () =>
-            {
-                Console.WriteLine("Test von Action");
-                scriptEngine.Stop();
-            };
+            //scriptContextMethods.SendResponse = () =>
+            //{
+            //    Console.WriteLine("Test von Action");
+            //    scriptEngine.Stop();
+            //};
 
             var scriptContext = new ScriptContext(middlerContext, scriptContextMethods);
             scriptContext.Terminating = Terminating;

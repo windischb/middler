@@ -11,10 +11,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Scripter.Engine.JavaScript" Version="1.2.0" />
-	  <PackageReference Include="Scripter.Engine.PowerShellCore" Version="1.2.0" />
-	  <PackageReference Include="Scripter.Engine.TypeScript" Version="1.2.0" />
-	  <PackageReference Include="Scripter.Modules.Default" Version="1.2.0" />
+	  <PackageReference Include="Scripter.Engine.JavaScript" Version="1.4.0" />
+	  <PackageReference Include="Scripter.Engine.PowerShellCore" Version="1.4.0" />
+	  <PackageReference Include="Scripter.Engine.TypeScript" Version="1.4.0" />
+	  <PackageReference Include="Scripter.Modules.Default" Version="1.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
